@@ -2,9 +2,6 @@ import { useState } from "react"
 import axios from "axios"
 import { useEffect } from "react"
 import correct from './correct.mp3';
-import song from './song.mp3'
-import Sound from 'react-sound'
-import useSound from "use-sound";
 import wrong from "./wrong2.wav";
 function App() {
   const [index, setIndex] = useState(0);
