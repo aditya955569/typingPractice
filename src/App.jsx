@@ -75,7 +75,6 @@ function App() {
   }
   return (
     <div className="h-screen bg-slate-400">
-      {/* <Sound url={song} playStatus={Sound.status.PLAYING}></Sound> */}
       <div className="grid grid-cols-2 gap-2">
         <div className="text-5xl font-bold font-serif pl-5 pt-5 text-red-700">
           TypingPractice
