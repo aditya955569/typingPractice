@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import Popup from "reactjs-popup";
 function App() {
   const [index, setIndex] = useState(0);
-  const [time, setTime] = useState(10)
+  const [time, setTime] = useState(50)
   const [sometext, setSometext] = useState("")
   const [userInput, setUserInput] = useState("")
   const [score, setScore] = useState(0);
