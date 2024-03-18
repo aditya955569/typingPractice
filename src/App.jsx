@@ -1,7 +1,11 @@
 import { useState } from "react"
 import axios from "axios"
 import { useEffect } from "react"
-import Popup from "reactjs-popup";
+import correct from './correct.mp3';
+import song from './song.mp3'
+import Sound from 'react-sound'
+import useSound from "use-sound";
+import wrong from "./wrong2.wav";
 function App() {
   const [index, setIndex] = useState(0);
   const [time, setTime] = useState(50)
@@ -10,6 +14,8 @@ function App() {
   const [score, setScore] = useState(0);
   const [timetwo, setTimetwo] = useState(time);
   const [g, setG] = useState(false);
+  const audio= new Audio(correct)
+  const audio2=new Audio(wrong)
   useEffect(() => {
     let myinterval = setInterval(() => {
       if (time > 0) {
@@ -23,8 +29,8 @@ function App() {
           setScore(0);
           setSometext("");
           setUserInput("");
-          setTime(10);
-          setTimetwo(10);
+          setTime(50);
+          setTimetwo(50);
         }, 5000);
       }
     }, 1000)
@@ -44,6 +50,7 @@ function App() {
       setUserInput(value);
       if (index == sometext.length - 1) {
         setUserInput('');
+        audio.play();
         setIndex(0);
         fetchRandomWord();
         setScore(score => score + 1);
@@ -51,6 +58,7 @@ function App() {
       }
     }
     else {
+      audio2.play();
       setTime(timetwo);
       setUserInput('');
       setIndex(0);
@@ -70,6 +78,7 @@ function App() {
   }
   return (
     <div className="h-screen bg-slate-400">
+      {/* <Sound url={song} playStatus={Sound.status.PLAYING}></Sound> */}
       <div className="grid grid-cols-2 gap-2">
         <div className="text-5xl font-bold font-serif pl-5 pt-5 text-red-700">
           TypingPractice

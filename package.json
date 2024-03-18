@@ -14,8 +14,10 @@
     "popup": "^0.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-sound": "^1.2.0",
     "reactjs-popup": "^2.0.6",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
