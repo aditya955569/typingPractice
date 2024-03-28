@@ -14,6 +14,9 @@ function App() {
   const audio = new Audio(correct)
   const audio2 = new Audio(wrong)
   useEffect(() => {
+    fetchRandomWord();
+  }, []);
+  useEffect(() => {
     let myinterval = setInterval(() => {
       if (time > 0) {
         setTime(time => time - 1);
@@ -30,9 +33,6 @@ function App() {
     }
   }
   )
-  useEffect(() => {
-    fetchRandomWord();
-  }, []);
   function processInput(value) {
     if (time > 0) {
       if (value.endsWith(sometext[index])) {
