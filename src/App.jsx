@@ -68,20 +68,20 @@ function App() {
     setTimetwo(time);
   }
   return (
-    <div className="h-screen bg-slate-400">
+    <div className="h-screen bg-zinc-800">
       <div className="grid grid-cols-2 gap-2">
-        <div className="text-5xl font-bold font-serif pl-5 pt-5 text-red-700">
+        <div className="text-4xl font-bold font-serif pl-5 pt-5 text-orange-500">
           TypingPractice
         </div>
-        <div className="flex justify-end text-4xl font-bold pr-5 pt-5">
+        <div className="flex justify-end text-4xl font-bold pr-5 pt-5  text-zinc-500/70">
           Time Left: {time} sec
         </div>
       </div>
-      <div className="flex justify-end text-4xl font-bold pr-5 pt-5">Score: {score}</div>
+      <div className="flex justify-end text-4xl font-bold pr-5 pt-5 text-zinc-500/70">Score: {score}</div>
       <div className="flex w-full justify-center">
-        <div className="text-3xl font-semibold pt-2">{sometext}</div>
+        <div className="text-3xl font-semibold pt-2  text-zinc-500/70">{sometext}</div>
       </div>
-      <div className="flex w-full justify-center text-3xl pt-3">
+      <div className="flex w-full justify-center text-3xl pt-3  text-zinc-500/70">
         <input type="text" value={userInput} onChange={
           (e) => processInput(e.target.value)
         } ></input>
