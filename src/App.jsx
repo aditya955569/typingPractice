@@ -11,24 +11,18 @@ function App() {
   const [score, setScore] = useState(0);
   const [timetwo, setTimetwo] = useState(time);
   const [g, setG] = useState(false);
-  const audio= new Audio(correct)
-  const audio2=new Audio(wrong)
+  const audio = new Audio(correct)
+  const audio2 = new Audio(wrong)
   useEffect(() => {
     let myinterval = setInterval(() => {
       if (time > 0) {
         setTime(time => time - 1);
       }
       else {
-        clearInterval(myinterval);
+
         setTimeout(() => {
-          fetchRandomWord();
-          setIndex(0);
-          setScore(0);
-          setSometext("");
-          setUserInput("");
-          setTime(50);
-          setTimetwo(50);
-        }, 5000);
+          window.location.reload();
+        }, 3000);
       }
     }, 1000)
     return () => {
@@ -40,38 +34,38 @@ function App() {
     fetchRandomWord();
   }, []);
   function processInput(value) {
-    console.log(userInput);
-    if (value.endsWith(sometext[index])) {
-      console.log(true);
-      setIndex(index => index + 1);
-      setUserInput(value);
-      if (index == sometext.length - 1) {
-        setUserInput('');
-        audio.play();
-        setIndex(0);
-        fetchRandomWord();
-        setScore(score => score + 1);
-        setTime(time => time - 2);
+    if (time > 0) {
+      if (value.endsWith(sometext[index])) {
+        console.log(true);
+        setIndex(index => index + 1);
+        setUserInput(value);
+        if (index == sometext.length - 1) {
+          setUserInput('');
+          audio.play();
+          setIndex(0);
+          fetchRandomWord();
+          setScore(score => score + 1);
+          setTime(time => time - 2);
+        }
       }
-    }
-    else {
-      audio2.play();
-      setTime(timetwo);
-      setUserInput('');
-      setIndex(0);
+      else {
+        audio2.play();
+        setTime(timetwo);
+        setUserInput('');
+        setIndex(0);
+      }
     }
   }
   const fetchRandomWord = () => {
-    axios({
-      method: 'get',
-      url: 'https://random-word-api.herokuapp.com/word',
-    })
-      .then(function (response) {
-        const resp = response.data
-        const data = resp[0]
-        setSometext(data);
-        setTimetwo(time);
-      })
+    let data = "";
+    let str = "1234567890!@#$%^&*()QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm,.;";
+    let length = Math.floor(Math.random() * 3) + 6
+    for (var i = 0; i < length; i++) {
+      let choose = Math.floor(Math.random() * str.length);
+      data += str[choose];
+    }
+    setSometext(data);
+    setTimetwo(time);
   }
   return (
     <div className="h-screen bg-slate-400">
