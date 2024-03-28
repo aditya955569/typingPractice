@@ -82,7 +82,7 @@ function App() {
         <div className="text-3xl font-semibold pt-2  text-zinc-500/70">{sometext}</div>
       </div>
       <div className="flex w-full justify-center text-3xl pt-3  text-zinc-500/70">
-        <input type="text" value={userInput} onChange={
+        <input type="text" className="px-2" value={userInput} onChange={
           (e) => processInput(e.target.value)
         } ></input>
       </div>
