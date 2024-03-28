@@ -58,7 +58,7 @@ function App() {
   }
   const fetchRandomWord = () => {
     let data = "";
-    let str = "1234567890!@#$%^&*()QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm,.;";
+    let str = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
     let length = Math.floor(Math.random() * 3) + 6
     for (var i = 0; i < length; i++) {
       let choose = Math.floor(Math.random() * str.length);
